@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2019 by beakovacs (http://jsbin.com/hecamew/2/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html>
+<head>
+<meta name="description" content="javascript színóra">
+  <link href="https://fonts.googleapis.com/css?family=ZCOOL+KuaiLe" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css">
+  <link rel="stylesheet"  type="text/css"  href="main.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>építs színórát</title>
+<style id="jsbin-css">
+* {
+	box-sizing: border-box;
+}
+/* ==== VERTIKÁLIS RITMUS ==== */
+
+h1,h2,h3,h4,h5,h6,hgroup,
+ul,ol,dd,
+p,figure,
+pre,table,fieldset,hr,
+img,
+.main-header, .primary-content {
+margin-bottom: 1rem;
+}
+
+* { margin: 0; padding: 0;
+
+}
+
+html, body {
+  height: 100%;
+}
+
+#clock {
+  text-align: center;
+  position: fixed;
+  top: 0;
+  right: 0;
+  font-family: 'ZCOOL KuaiLe', cursive;
+  font-size: 70px;
+  color: #f0f4b0; 
+}
+
+
+</style>
+</head>
+<body>
+  <div id="clock">12:13:14</div>
+  
+<script id="jsbin-javascript">
+function colorClock(){
+  var date = new Date();
+
+  var hours = date.getHours();
+  var minutes = date.getMinutes();
+  var seconds = date.getSeconds();
+
+  if (hours <= 9) {
+    hours = "0" + hours;
+  }
+  if (minutes <= 9) {
+    minutes = "0" + minutes;
+  }
+  if (seconds <= 9) {
+    seconds = "0" + seconds;
+  }
+
+  var clockFace = hours + ':' + minutes + ':' + seconds;
+  var hexColor = '#' + hours + minutes + seconds;
+
+  document.getElementById('clock').innerHTML = clockFace;
+ document.body.style.background =  hexColor;
+
+  setTimeout(function() {
+    colorClock();
+  }, 1000);
+}
+
+colorClock();
+
+
+
+
+
+
+
+</script>
+</body>
+</html>
